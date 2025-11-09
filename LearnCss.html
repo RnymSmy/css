@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Master - Complete Interactive Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --success: #4ade80;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, #4361ee, #3a0ca3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,50 Q250,0 500,50 T1000,50 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50%;
+        }
+        
+        nav {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0 0.5rem;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        nav a i {
+            font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .sidebar a {
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.5rem;
+        }
+        
+        .card h2 i {
+            color: var(--accent);
+        }
+        
+        .card h3 {
+            color: var(--secondary);
+            margin: 1.8rem 0 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.2rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .example-box::before {
+            content: "Example";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 0 0 8px 0;
+        }
+        
+        .code {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+            position: relative;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border: none;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .practice-area {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px dashed #7dd3fc;
+            border-radius: 10px;
+            padding: 1.8rem;
+            margin: 1.5rem 0;
+        }
+        
+        .practice-area h4 {
+            color: var(--secondary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(67, 97, 238, 0.4);
+        }
+        
+        .demo-box {
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .demo-element {
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+        }
+        
+        .demo-box h5 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .css-playground {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .css-controls {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .css-preview {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            min-height: 200px;
+        }
+        
+        .control-group {
+            margin-bottom: 1rem;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .control-group input, .control-group select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+        }
+        
+        .property-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .property-table th, .property-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.8rem;
+            text-align: left;
+        }
+        
+        .property-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .property-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .flex-demo {
+            display: flex;
+            gap: 10px;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .flex-item {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .grid-demo {
+            display: grid;
+            gap: 10px;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .grid-item {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .position-demo {
+            position: relative;
+            height: 200px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 1rem 0;
+            background: #f8fafc;
+        }
+        
+        .position-box {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        .transform-demo {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            margin: 2rem auto;
+            transition: transform 0.5s ease;
+        }
+        
+        .transition-demo {
+            width: 100px;
+            height: 100px;
+            background: var(--success);
+            margin: 2rem auto;
+            transition: all 0.5s ease;
+        }
+        
+        .animation-demo {
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            margin: 2rem auto;
+        }
+        
+        .code-examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .code-example-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s ease;
+        }
+        
+        .code-example-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .code-example-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .tab-container {
+            margin: 1.5rem 0;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            background-color: #f1f5f9;
+            margin-right: 0.3rem;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-color: #e2e8f0;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.8rem;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background-color: white;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .unit-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .unit-box {
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+        }
+        
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .css-playground {
+                grid-template-columns: 1fr;
+            }
+            
+            .code-examples-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            nav li {
+                margin: 0.2rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav a {
+                justify-content: center;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fab fa-css3-alt"></i>
+            </div>
+            <h1>CSS Master - Complete Interactive Learning</h1>
+            <p>Master CSS through interactive examples, property references, and practical demos</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#intro"><i class="fas fa-home"></i> Introduction</a></li>
+            <li><a href="#properties"><i class="fas fa-list"></i> Properties</a></li>
+            <li><a href="#layout"><i class="fas fa-th"></i> Layout</a></li>
+            <li><a href="#effects"><i class="fas fa-magic"></i> Effects</a></li>
+            <li><a href="#code-examples"><i class="fas fa-code"></i> Code Examples</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="main-content">
+            <!-- Introduction to CSS -->
+            <section id="intro" class="card">
+                <h2><i class="fas fa-home"></i> Introduction to CSS</h2>
+                <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation and formatting of a document written in HTML or XML. CSS separates the content (HTML) from the design (styles), making it easier to maintain and update websites.</p>
+                
+                <div class="example-box">
+                    <h3>Basic CSS Example:</h3>
+                    <div class="code">
+                        <div class="code-header">
+                            <span>CSS</span>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: navy;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+                    </div>
+                </div>
+                
+                <div class="practice-area">
+                    <h4><i class="fas fa-flask"></i> Try It Yourself:</h4>
+                    <p>Click the button below to create your first CSS:</p>
+                    <button class="btn" onclick="createFirstCSS()"><i class="fas fa-code"></i> Create My First CSS</button>
+                    <div id="first-css-output" class="demo-box"></div>
+                </div>
+            </section>
+            
+            <!-- CSS Properties Reference -->
+            <section id="properties" class="card">
+                <h2><i class="fas fa-list"></i> CSS Properties Reference</h2>
+                <p>This section contains all essential CSS properties organized by category with examples and explanations.</p>
+                
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" onclick="openTab(event, 'properties-text')">Text & Fonts</div>
+                        <div class="tab" onclick="openTab(event, 'properties-color')">Colors & Background</div>
+                        <div class="tab" onclick="openTab(event, 'properties-box')">Box Model</div>
+                        <div class="tab" onclick="openTab(event, 'properties-border')">Borders</div>
+                    </div>
+                    
+                    <div id="properties-text" class="tab-content active">
+                        <h3>Text & Font Properties</h3>
+                        
+                        <table class="property-table">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                    <th>Values</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>font-family</code></td>
+                                    <td>Specifies the font for text</td>
+                                    <td>font-name, generic-family</td>
+                                    <td><code>font-family: Arial, sans-serif;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>font-size</code></td>
+                                    <td>Sets the size of the font</td>
+                                    <td>px, em, rem, %</td>
+                                    <td><code>font-size: 16px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>font-weight</code></td>
+                                    <td>Sets the thickness of the font</td>
+                                    <td>normal, bold, 100-900</td>
+                                    <td><code>font-weight: bold;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>text-align</code></td>
+                                    <td>Aligns text horizontally</td>
+                                    <td>left, right, center, justify</td>
+                                    <td><code>text-align: center;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>line-height</code></td>
+                                    <td>Sets the space between lines</td>
+                                    <td>normal, number, length</td>
+                                    <td><code>line-height: 1.5;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Text Properties Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="font-family">Font Family:</label>
+                                        <select id="font-family" onchange="updateTextProperties()">
+                                            <option value="Arial, sans-serif">Arial</option>
+                                            <option value="'Times New Roman', serif">Times New Roman</option>
+                                            <option value="'Courier New', monospace">Courier New</option>
+                                            <option value="'Georgia', serif">Georgia</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="font-size">Font Size:</label>
+                                        <input type="text" id="font-size" value="16px" oninput="updateTextProperties()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="font-weight">Font Weight:</label>
+                                        <select id="font-weight" onchange="updateTextProperties()">
+                                            <option value="normal">Normal</option>
+                                            <option value="bold">Bold</option>
+                                            <option value="300">Light</option>
+                                            <option value="700">Bold (700)</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="text-align">Text Align:</label>
+                                        <select id="text-align" onchange="updateTextProperties()">
+                                            <option value="left">Left</option>
+                                            <option value="center">Center</option>
+                                            <option value="right">Right</option>
+                                            <option value="justify">Justify</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="text-preview-element" style="padding: 1rem; margin-top: 1rem;">
+                                        This is a sample text to demonstrate CSS text properties. You can see how different font families, sizes, weights, and alignments affect the appearance of text.
+                                    </div>
+                                    <div id="text-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="properties-color" class="tab-content">
+                        <h3>Color & Background Properties</h3>
+                        
+                        <table class="property-table">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                    <th>Values</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>color</code></td>
+                                    <td>Sets text color</td>
+                                    <td>named, HEX, RGB, HSL</td>
+                                    <td><code>color: #ff0000;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>background-color</code></td>
+                                    <td>Sets background color</td>
+                                    <td>named, HEX, RGB, HSL, transparent</td>
+                                    <td><code>background-color: blue;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>background-image</code></td>
+                                    <td>Sets background image</td>
+                                    <td>url(), none, gradient</td>
+                                    <td><code>background-image: url('bg.jpg');</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>background-repeat</code></td>
+                                    <td>Sets if/how background repeats</td>
+                                    <td>repeat, repeat-x, repeat-y, no-repeat</td>
+                                    <td><code>background-repeat: no-repeat;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>background-position</code></td>
+                                    <td>Sets background image position</td>
+                                    <td>top, bottom, left, right, center, x% y%</td>
+                                    <td><code>background-position: center;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Color Properties Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="color-format">Color Format:</label>
+                                        <select id="color-format" onchange="updateColorProperties()">
+                                            <option value="named">Named Color</option>
+                                            <option value="hex">HEX</option>
+                                            <option value="rgb">RGB</option>
+                                            <option value="rgba">RGBA</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="color-value">Color Value:</label>
+                                        <input type="text" id="color-value" value="red" oninput="updateColorProperties()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="apply-to">Apply to:</label>
+                                        <select id="apply-to" onchange="updateColorProperties()">
+                                            <option value="text">Text Color</option>
+                                            <option value="background">Background Color</option>
+                                            <option value="border">Border Color</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="color-preview-element" style="padding: 1rem; border: 2px solid #ccc; margin-top: 1rem;">
+                                        This is a sample element to demonstrate color effects.
+                                    </div>
+                                    <div id="color-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="properties-border" class="tab-content">
+                        <h3>Border Properties</h3>
+                        
+                        <table class="property-table">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                    <th>Values</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>border</code></td>
+                                    <td>Sets all border properties</td>
+                                    <td>width style color</td>
+                                    <td><code>border: 2px solid red;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>border-width</code></td>
+                                    <td>Sets border width</td>
+                                    <td>thin, medium, thick, length</td>
+                                    <td><code>border-width: 1px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>border-style</code></td>
+                                    <td>Sets border style</td>
+                                    <td>none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset</td>
+                                    <td><code>border-style: dashed;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>border-color</code></td>
+                                    <td>Sets border color</td>
+                                    <td>named, HEX, RGB, HSL, transparent</td>
+                                    <td><code>border-color: #3366ff;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>border-radius</code></td>
+                                    <td>Rounds element corners</td>
+                                    <td>length, %</td>
+                                    <td><code>border-radius: 10px;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Border Properties Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="border-width">Border Width:</label>
+                                        <input type="text" id="border-width" value="2px" oninput="updateBorderProperties()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="border-style">Border Style:</label>
+                                        <select id="border-style" onchange="updateBorderProperties()">
+                                            <option value="solid">Solid</option>
+                                            <option value="dashed">Dashed</option>
+                                            <option value="dotted">Dotted</option>
+                                            <option value="double">Double</option>
+                                            <option value="groove">Groove</option>
+                                            <option value="ridge">Ridge</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="border-color">Border Color:</label>
+                                        <input type="text" id="border-color" value="#4361ee" oninput="updateBorderProperties()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="border-radius">Border Radius:</label>
+                                        <input type="text" id="border-radius" value="8px" oninput="updateBorderProperties()">
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="border-preview-element" style="padding: 1rem; margin-top: 1rem;">
+                                        This element demonstrates border properties.
+                                    </div>
+                                    <div id="border-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="properties-box" class="tab-content">
+                        <h3>Box Model Properties</h3>
+                        
+                        <table class="property-table">
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Description</th>
+                                    <th>Values</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>width</code></td>
+                                    <td>Sets element width</td>
+                                    <td>auto, length, %</td>
+                                    <td><code>width: 300px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>height</code></td>
+                                    <td>Sets element height</td>
+                                    <td>auto, length, %</td>
+                                    <td><code>height: 200px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>margin</code></td>
+                                    <td>Sets outer space around element</td>
+                                    <td>auto, length, %</td>
+                                    <td><code>margin: 20px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>padding</code></td>
+                                    <td>Sets inner space inside element</td>
+                                    <td>length, %</td>
+                                    <td><code>padding: 15px;</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>box-sizing</code></td>
+                                    <td>Defines how width/height are calculated</td>
+                                    <td>content-box, border-box</td>
+                                    <td><code>box-sizing: border-box;</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Box Model Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="box-margin">Margin:</label>
+                                        <input type="text" id="box-margin" value="20px" oninput="updateBoxModel()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="box-padding">Padding:</label>
+                                        <input type="text" id="box-padding" value="15px" oninput="updateBoxModel()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="box-border">Border:</label>
+                                        <input type="text" id="box-border" value="2px solid #4361ee" oninput="updateBoxModel()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="box-width">Width:</label>
+                                        <input type="text" id="box-width" value="200px" oninput="updateBoxModel()">
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="box-model-demo" style="display: flex; justify-content: center; align-items: center; min-height: 200px;">
+                                        <div id="box-model-element" style="background: #f8fafc; text-align: center; padding: 15px; border: 2px solid #4361ee; margin: 20px; width: 200px;">
+                                            Box Content
+                                        </div>
+                                    </div>
+                                    <div id="box-model-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Layout Section -->
+            <section id="layout" class="card">
+                <h2><i class="fas fa-th"></i> CSS Layout</h2>
+                <p>CSS provides several layout techniques: Flexbox, Grid, and traditional positioning.</p>
+                
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" onclick="openTab(event, 'layout-flexbox')">Flexbox</div>
+                        <div class="tab" onclick="openTab(event, 'layout-grid')">Grid</div>
+                        <div class="tab" onclick="openTab(event, 'layout-position')">Position</div>
+                    </div>
+                    
+                    <div id="layout-flexbox" class="tab-content active">
+                        <h3>Flexbox Layout</h3>
+                        <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.item {
+    flex: 1;
+    padding: 10px;
+}
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Flexbox Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="flex-direction">Flex Direction:</label>
+                                        <select id="flex-direction" onchange="updateFlexboxDemo()">
+                                            <option value="row">Row</option>
+                                            <option value="row-reverse">Row Reverse</option>
+                                            <option value="column">Column</option>
+                                            <option value="column-reverse">Column Reverse</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="justify-content">Justify Content:</label>
+                                        <select id="justify-content" onchange="updateFlexboxDemo()">
+                                            <option value="flex-start">Flex Start</option>
+                                            <option value="flex-end">Flex End</option>
+                                            <option value="center">Center</option>
+                                            <option value="space-between">Space Between</option>
+                                            <option value="space-around">Space Around</option>
+                                            <option value="space-evenly">Space Evenly</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="align-items">Align Items:</label>
+                                        <select id="align-items" onchange="updateFlexboxDemo()">
+                                            <option value="stretch">Stretch</option>
+                                            <option value="flex-start">Flex Start</option>
+                                            <option value="flex-end">Flex End</option>
+                                            <option value="center">Center</option>
+                                            <option value="baseline">Baseline</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="flexbox-demo" class="flex-demo" style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px;">
+                                        <div class="flex-item">Item 1</div>
+                                        <div class="flex-item">Item 2</div>
+                                        <div class="flex-item">Item 3</div>
+                                    </div>
+                                    <div id="flexbox-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="layout-grid" class="tab-content">
+                        <h3>Grid Layout</h3>
+                        <p>CSS Grid is a two-dimensional layout system for the web.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 200px;
+    gap: 10px;
+}
+
+.item {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Grid Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="grid-template-columns">Grid Template Columns:</label>
+                                        <input type="text" id="grid-template-columns" value="1fr 1fr 1fr" oninput="updateGridDemo()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="grid-template-rows">Grid Template Rows:</label>
+                                        <input type="text" id="grid-template-rows" value="100px 100px" oninput="updateGridDemo()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="grid-gap">Grid Gap:</label>
+                                        <input type="text" id="grid-gap" value="10px" oninput="updateGridDemo()">
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="grid-demo" class="grid-demo" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 100px 100px; gap: 10px;">
+                                        <div class="grid-item">Item 1</div>
+                                        <div class="grid-item">Item 2</div>
+                                        <div class="grid-item">Item 3</div>
+                                        <div class="grid-item">Item 4</div>
+                                        <div class="grid-item">Item 5</div>
+                                        <div class="grid-item">Item 6</div>
+                                    </div>
+                                    <div id="grid-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="layout-position" class="tab-content">
+                        <h3>Position Property</h3>
+                        <p>CSS positioning allows you to control the placement of elements.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.relative {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+.absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Position Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="position-type">Position Type:</label>
+                                        <select id="position-type" onchange="updatePositionDemo()">
+                                            <option value="static">Static</option>
+                                            <option value="relative">Relative</option>
+                                            <option value="absolute">Absolute</option>
+                                            <option value="fixed">Fixed</option>
+                                            <option value="sticky">Sticky</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="position-top">Top:</label>
+                                        <input type="text" id="position-top" value="20px" oninput="updatePositionDemo()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="position-left">Left:</label>
+                                        <input type="text" id="position-left" value="30px" oninput="updatePositionDemo()">
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div class="position-demo">
+                                        <div id="position-box" class="position-box" style="top: 20px; left: 30px;">
+                                            Positioned Element
+                                        </div>
+                                        <div style="position: absolute; bottom: 10px; left: 10px; color: var(--gray); font-size: 0.8rem;">
+                                            Container
+                                        </div>
+                                    </div>
+                                    <div id="position-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Effects Section -->
+            <section id="effects" class="card">
+                <h2><i class="fas fa-magic"></i> CSS Effects</h2>
+                <p>CSS provides powerful effects like transforms, transitions, and animations to create engaging user experiences.</p>
+                
+                <div class="tab-container">
+                    <div class="tabs">
+                        <div class="tab active" onclick="openTab(event, 'effects-transform')">Transform</div>
+                        <div class="tab" onclick="openTab(event, 'effects-transition')">Transition</div>
+                        <div class="tab" onclick="openTab(event, 'effects-animation')">Animation</div>
+                    </div>
+                    
+                    <div id="effects-transform" class="tab-content active">
+                        <h3>Transform Property</h3>
+                        <p>The transform property applies a 2D or 3D transformation to an element.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+/* Translate - Move element */
+transform: translate(50px, 0);
+
+/* Rotate - Rotate element */
+transform: rotate(45deg);
+
+/* Scale - Resize element */
+transform: scale(2);
+
+/* Skew - Slant element */
+transform: skew(20deg);
+
+/* Multiple transforms */
+transform: translate(50px, 20px) rotate(30deg) scale(1.2);
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Transform Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="transform-type">Transform Type:</label>
+                                        <select id="transform-type" onchange="updateTransformDemo()">
+                                            <option value="translate">Translate</option>
+                                            <option value="rotate">Rotate</option>
+                                            <option value="scale">Scale</option>
+                                            <option value="skew">Skew</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="transform-value">Value:</label>
+                                        <input type="text" id="transform-value" value="50px" oninput="updateTransformDemo()">
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="transform-demo" class="transform-demo"></div>
+                                    <div id="transform-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="effects-transition" class="tab-content">
+                        <h3>Transition Property</h3>
+                        <p>The transition property creates smooth animations between property changes.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+/* Transition all properties */
+transition: all 1s ease;
+
+/* Transition specific property */
+transition: background-color 0.5s linear;
+
+/* Multiple transitions */
+transition: 
+    background-color 0.5s ease,
+    transform 0.3s ease-out;
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Transition Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="transition-property">Property:</label>
+                                        <select id="transition-property" onchange="updateTransitionDemo()">
+                                            <option value="all">All Properties</option>
+                                            <option value="background-color">Background Color</option>
+                                            <option value="transform">Transform</option>
+                                            <option value="width">Width</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="transition-duration">Duration:</label>
+                                        <input type="text" id="transition-duration" value="0.5s" oninput="updateTransitionDemo()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="transition-timing">Timing Function:</label>
+                                        <select id="transition-timing" onchange="updateTransitionDemo()">
+                                            <option value="ease">Ease</option>
+                                            <option value="linear">Linear</option>
+                                            <option value="ease-in">Ease In</option>
+                                            <option value="ease-out">Ease Out</option>
+                                            <option value="ease-in-out">Ease In Out</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="transition-demo" class="transition-demo" style="width: 100px; height: 100px; background: var(--success);"></div>
+                                    <button class="btn" onclick="triggerTransition()">Trigger Transition</button>
+                                    <div id="transition-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="effects-animation" class="tab-content">
+                        <h3>Animation Property</h3>
+                        <p>The animation property creates complex animations using keyframes.</p>
+                        
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+/* Define animation */
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Apply animation */
+.element {
+    animation: slide-in 1s ease-in-out;
+}
+
+/* Animation with multiple properties */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.element {
+    animation: bounce 2s infinite;
+}
+                        </div>
+                        
+                        <div class="practice-area">
+                            <h4><i class="fas fa-flask"></i> Animation Playground:</h4>
+                            <div class="css-playground">
+                                <div class="css-controls">
+                                    <div class="control-group">
+                                        <label for="animation-type">Animation Type:</label>
+                                        <select id="animation-type" onchange="updateAnimationDemo()">
+                                            <option value="bounce">Bounce</option>
+                                            <option value="slide">Slide In</option>
+                                            <option value="rotate">Rotate</option>
+                                            <option value="pulse">Pulse</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="animation-duration">Duration:</label>
+                                        <input type="text" id="animation-duration" value="2s" oninput="updateAnimationDemo()">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="animation-iteration">Iteration Count:</label>
+                                        <select id="animation-iteration" onchange="updateAnimationDemo()">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="infinite" selected>Infinite</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="css-preview">
+                                    <h4>Preview</h4>
+                                    <div id="animation-demo" class="animation-demo"></div>
+                                    <div id="animation-code-output" style="margin-top: 1rem; font-family: monospace; background: #f5f5f5; padding: 0.5rem; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Code Examples Section -->
+            <section id="code-examples" class="card">
+                <h2><i class="fas fa-code"></i> CSS Code Examples</h2>
+                <p>Ready-to-use CSS code examples for common patterns and components.</p>
+                
+                <div class="code-examples-grid">
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-button"></i> Button Styles</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+                        </div>
+                    </div>
+                    
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-card"></i> Card Component</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 24px;
+    transition: transform 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--dark);
+}
+                        </div>
+                    </div>
+                    
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-navicon"></i> Navigation Bar</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.navbar {
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: var(--primary);
+    color: white;
+}
+                        </div>
+                    </div>
+                    
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-table"></i> Table Styling</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    text-align: left;
+}
+
+.styled-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+}
+
+.styled-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.styled-table tr:hover {
+    background: #f1f5f9;
+}
+                        </div>
+                    </div>
+                    
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-form"></i> Form Styling</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67,97,238,0.1);
+}
+                        </div>
+                    </div>
+                    
+                    <div class="code-example-card">
+                        <h4><i class="fas fa-grid"></i> Grid Layout</h4>
+                        <div class="code">
+                            <div class="code-header">
+                                <span>CSS</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.grid-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="sidebar">
+            <h3><i class="fas fa-bookmark"></i> Quick Navigation</h3>
+            <ul>
+                <li><a href="#intro"><i class="fas fa-chevron-right"></i> Introduction</a></li>
+                <li><a href="#properties"><i class="fas fa-chevron-right"></i> Properties</a></li>
+                <li><a href="#layout"><i class="fas fa-chevron-right"></i> Layout</a></li>
+                <li><a href="#effects"><i class="fas fa-chevron-right"></i> Effects</a></li>
+                <li><a href="#code-examples"><i class="fas fa-chevron-right"></i> Code Examples</a></li>
+            </ul>
+            
+            <h3><i class="fas fa-lightbulb"></i> Study Tips</h3>
+            <ul>
+                <li><i class="fas fa-check"></i> Practice with interactive examples</li>
+                <li><i class="fas fa-check"></i> Experiment in the playgrounds</li>
+                <li><i class="fas fa-check"></i> Use the code examples as templates</li>
+                <li><i class="fas fa-check"></i> Bookmark for quick reference</li>
+            </ul>
+            
+            <h3><i class="fas fa-link"></i> Resources</h3>
+            <ul>
+                <li><a href="https://www.w3schools.com/css/" target="_blank"><i class="fas fa-external-link-alt"></i> W3Schools CSS Guide</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><i class="fas fa-external-link-alt"></i> MDN CSS Docs</a></li>
+                <li><a href="https://css-tricks.com/" target="_blank"><i class="fas fa-external-link-alt"></i> CSS-Tricks</a></li>
+                <li><a href="https://caniuse.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Can I Use</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 CSS Master - Complete Interactive Learning | Master CSS through interactive examples and practical demos</p>
+            <div class="footer-links">
+                <a href="#intro">Home</a>
+                <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3Schools</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN Web Docs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copy code to clipboard
+        function copyCode(button) {
+            const codeElement = button.closest('.code');
+            const codeText = codeElement.innerText.replace('Copy', '').replace('CSS', '').trim();
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+        
+        // Tab functionality
+        function openTab(evt, tabName) {
+            const tabcontent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            const tablinks = document.getElementsByClassName("tab");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+        
+        // Create first CSS
+        function createFirstCSS() {
+            const output = document.getElementById("first-css-output");
+            output.innerHTML = `
+                <h4>Your First CSS:</h4>
+                <div class="code">
+                    <div class="code-header">
+                        <span>CSS</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+/* My First CSS */
+body {
+    background-color: #f0f8ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+p {
+    color: #34495e;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+                </div>
+                <p><strong>Result:</strong></p>
+                <div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px;">
+                    <div style="max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h1 style="color: #2c3e50; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Welcome to CSS</h1>
+                        <p style="color: #34495e; line-height: 1.6; font-size: 16px;">This is a paragraph styled with CSS. Notice how we can control colors, spacing, fonts, and layout.</p>
+                        <p style="color: #34495e; line-height: 1.6; font-size: 16px;">CSS makes web pages look beautiful and professional.</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Update text properties
+        function updateTextProperties() {
+            const fontFamily = document.getElementById('font-family').value;
+            const fontSize = document.getElementById('font-size').value;
+            const fontWeight = document.getElementById('font-weight').value;
+            const textAlign = document.getElementById('text-align').value;
+            
+            const element = document.getElementById('text-preview-element');
+            const output = document.getElementById('text-code-output');
+            
+            // Apply styles
+            element.style.fontFamily = fontFamily;
+            element.style.fontSize = fontSize;
+            element.style.fontWeight = fontWeight;
+            element.style.textAlign = textAlign;
+            
+            // Show the CSS code
+            output.textContent = `font-family: ${fontFamily};\nfont-size: ${fontSize};\nfont-weight: ${fontWeight};\ntext-align: ${textAlign};`;
+        }
+        
+        // Update color properties
+        function updateColorProperties() {
+            const format = document.getElementById('color-format').value;
+            const value = document.getElementById('color-value').value;
+            const applyTo = document.getElementById('apply-to').value;
+            const element = document.getElementById('color-preview-element');
+            const output = document.getElementById('color-code-output');
+            
+            let cssValue = value;
+            
+            // Convert to appropriate format if needed
+            if (format === 'named') {
+                cssValue = value;
+            } else if (format === 'hex') {
+                // Ensure it starts with #
+                cssValue = value.startsWith('#') ? value : '#' + value;
+            } else if (format === 'rgb') {
+                // Convert named colors to RGB if possible
+                const namedColors = {
+                    'red': 'rgb(255, 0, 0)',
+                    'green': 'rgb(0, 128, 0)',
+                    'blue': 'rgb(0, 0, 255)',
+                    'black': 'rgb(0, 0, 0)',
+                    'white': 'rgb(255, 255, 255)'
+                };
+                
+                if (namedColors[value]) {
+                    cssValue = namedColors[value];
+                } else if (!value.startsWith('rgb(')) {
+                    cssValue = `rgb(${value})`;
+                }
+            } else if (format === 'rgba') {
+                if (!value.startsWith('rgba(')) {
+                    cssValue = `rgba(${value})`;
+                }
+            }
+            
+            // Apply the color
+            if (applyTo === 'text') {
+                element.style.color = cssValue;
+                element.style.backgroundColor = '';
+                element.style.borderColor = '';
+            } else if (applyTo === 'background') {
+                element.style.backgroundColor = cssValue;
+                element.style.color = '';
+                element.style.borderColor = '';
+            } else if (applyTo === 'border') {
+                element.style.borderColor = cssValue;
+                element.style.color = '';
+                element.style.backgroundColor = '';
+            }
+            
+            // Show the CSS code
+            output.textContent = `${applyTo}-color: ${cssValue};`;
+        }
+        
+        // Update border properties
+        function updateBorderProperties() {
+            const width = document.getElementById('border-width').value;
+            const style = document.getElementById('border-style').value;
+            const color = document.getElementById('border-color').value;
+            const radius = document.getElementById('border-radius').value;
+            
+            const element = document.getElementById('border-preview-element');
+            const output = document.getElementById('border-code-output');
+            
+            // Apply styles
+            element.style.borderWidth = width;
+            element.style.borderStyle = style;
+            element.style.borderColor = color;
+            element.style.borderRadius = radius;
+            
+            // Show the CSS code
+            output.textContent = `border-width: ${width};\nborder-style: ${style};\nborder-color: ${color};\nborder-radius: ${radius};`;
+        }
+        
+        // Update box model
+        function updateBoxModel() {
+            const margin = document.getElementById('box-margin').value;
+            const padding = document.getElementById('box-padding').value;
+            const border = document.getElementById('box-border').value;
+            const width = document.getElementById('box-width').value;
+            
+            const element = document.getElementById('box-model-element');
+            const output = document.getElementById('box-model-code-output');
+            
+            element.style.margin = margin;
+            element.style.padding = padding;
+            element.style.border = border;
+            element.style.width = width;
+            
+            // Show the CSS code
+            output.textContent = `margin: ${margin};\npadding: ${padding};\nborder: ${border};\nwidth: ${width};`;
+        }
+        
+        // Update flexbox demo
+        function updateFlexboxDemo() {
+            const direction = document.getElementById('flex-direction').value;
+            const justify = document.getElementById('justify-content').value;
+            const align = document.getElementById('align-items').value;
+            
+            const element = document.getElementById('flexbox-demo');
+            const output = document.getElementById('flexbox-code-output');
+            
+            // Apply styles
+            element.style.flexDirection = direction;
+            element.style.justifyContent = justify;
+            element.style.alignItems = align;
+            
+            // Show the CSS code
+            output.textContent = `display: flex;\nflex-direction: ${direction};\njustify-content: ${justify};\nalign-items: ${align};`;
+        }
+        
+        // Update grid demo
+        function updateGridDemo() {
+            const columns = document.getElementById('grid-template-columns').value;
+            const rows = document.getElementById('grid-template-rows').value;
+            const gap = document.getElementById('grid-gap').value;
+            
+            const element = document.getElementById('grid-demo');
+            const output = document.getElementById('grid-code-output');
+            
+            // Apply styles
+            element.style.gridTemplateColumns = columns;
+            element.style.gridTemplateRows = rows;
+            element.style.gap = gap;
+            
+            // Show the CSS code
+            output.textContent = `display: grid;\ngrid-template-columns: ${columns};\ngrid-template-rows: ${rows};\ngap: ${gap};`;
+        }
+        
+        // Update position demo
+        function updatePositionDemo() {
+            const type = document.getElementById('position-type').value;
+            const top = document.getElementById('position-top').value;
+            const left = document.getElementById('position-left').value;
+            
+            const element = document.getElementById('position-box');
+            const output = document.getElementById('position-code-output');
+            
+            // Apply styles
+            element.style.position = type;
+            element.style.top = top;
+            element.style.left = left;
+            
+            // Show the CSS code
+            output.textContent = `position: ${type};\ntop: ${top};\nleft: ${left};`;
+        }
+        
+        // Update transform demo
+        function updateTransformDemo() {
+            const type = document.getElementById('transform-type').value;
+            const value = document.getElementById('transform-value').value;
+            
+            const element = document.getElementById('transform-demo');
+            const output = document.getElementById('transform-code-output');
+            
+            // Apply transform based on type
+            let transformValue = '';
+            switch(type) {
+                case 'translate':
+                    transformValue = `translate(${value})`;
+                    break;
+                case 'rotate':
+                    transformValue = `rotate(${value})`;
+                    break;
+                case 'scale':
+                    transformValue = `scale(${value})`;
+                    break;
+                case 'skew':
+                    transformValue = `skew(${value})`;
+                    break;
+            }
+            
+            element.style.transform = transformValue;
+            
+            // Show the CSS code
+            output.textContent = `transform: ${transformValue};`;
+        }
+        
+        // Update transition demo
+        function updateTransitionDemo() {
+            const property = document.getElementById('transition-property').value;
+            const duration = document.getElementById('transition-duration').value;
+            const timing = document.getElementById('transition-timing').value;
+            
+            const element = document.getElementById('transition-demo');
+            const output = document.getElementById('transition-code-output');
+            
+            // Apply transition
+            element.style.transition = `${property} ${duration} ${timing}`;
+            
+            // Show the CSS code
+            output.textContent = `transition: ${property} ${duration} ${timing};`;
+        }
+        
+        // Trigger transition
+        function triggerTransition() {
+            const element = document.getElementById('transition-demo');
+            element.style.width = element.style.width === '200px' ? '100px' : '200px';
+            element.style.backgroundColor = element.style.backgroundColor === 'var(--success)' ? 'var(--accent)' : 'var(--success)';
+        }
+        
+        // Update animation demo
+        function updateAnimationDemo() {
+            const type = document.getElementById('animation-type').value;
+            const duration = document.getElementById('animation-duration').value;
+            const iteration = document.getElementById('animation-iteration').value;
+            
+            const element = document.getElementById('animation-demo');
+            const output = document.getElementById('animation-code-output');
+            
+            // Remove existing animation
+            element.style.animation = 'none';
+            
+            // Define keyframes based on type
+            let keyframes = '';
+            let animationName = '';
+            
+            switch(type) {
+                case 'bounce':
+                    animationName = 'bounce';
+                    keyframes = `
+                        @keyframes bounce {
+                            0%, 100% { transform: translateY(0); }
+                            50% { transform: translateY(-20px); }
+                        }
+                    `;
+                    break;
+                case 'slide':
+                    animationName = 'slideIn';
+                    keyframes = `
+                        @keyframes slideIn {
+                            0% { transform: translateX(-100%); opacity: 0; }
+                            100% { transform: translateX(0); opacity: 1; }
+                        }
+                    `;
+                    break;
+                case 'rotate':
+                    animationName = 'rotate';
+                    keyframes = `
+                        @keyframes rotate {
+                            0% { transform: rotate(0deg); }
+                            100% { transform: rotate(360deg); }
+                        }
+                    `;
+                    break;
+                case 'pulse':
+                    animationName = 'pulse';
+                    keyframes = `
+                        @keyframes pulse {
+                            0%, 100% { transform: scale(1); }
+                            50% { transform: scale(1.1); }
+                        }
+                    `;
+                    break;
+            }
+            
+            // Apply animation
+            element.style.animation = `${animationName} ${duration} ease-in-out ${iteration}`;
+            
+            // Show the CSS code
+            output.textContent = `${keyframes}\n\nanimation: ${animationName} ${duration} ease-in-out ${iteration};`;
+        }
+        
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTextProperties();
+            updateColorProperties();
+            updateBorderProperties();
+            updateBoxModel();
+            updateFlexboxDemo();
+            updateGridDemo();
+            updatePositionDemo();
+            updateTransformDemo();
+            updateTransitionDemo();
+            updateAnimationDemo();
+        });
+    </script>
+</body>
+</html>
